@@ -36,8 +36,8 @@ nativeApp.post('/', async (req, res) => {
 })
 
 nativeApp.get('/:id', async (req, res) => {
-  const entry = await req.db.native.findOne({_id: new ObjectId(req.params.id)})
-  res.send(entry)
+  const doc = await req.db.native.findOne({_id: new ObjectId(req.params.id)})
+  res.send(doc)
 })
 
 nativeApp.put('/:id', async (req, res) => {
@@ -81,8 +81,8 @@ mongooseApp.post('/', async (req, res) => {
 })
 
 mongooseApp.get('/:id', async (req, res) => {
-  const entry = await req.db.mongoose.findById(req.params.id).lean()
-  res.send(entry)
+  const doc = await req.db.mongoose.findById(req.params.id).lean()
+  res.send(doc)
 })
 
 mongooseApp.put('/:id', async (req, res) => {
